@@ -17,8 +17,8 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/digitalpoetry/redash-client-go/redash"
 	log "github.com/sirupsen/logrus"
-	"github.com/snowplow-devops/redash-client-go/redash"
 )
 
 func main() {
