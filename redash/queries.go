@@ -184,7 +184,7 @@ func (c *Client) GetQuery(id int) (*Query, error) {
 }
 
 // CreateQuery creates a new Redash query
-func (c *Client) CreateQuery(query QueryCreatePayload) (*Query, error) {
+func (c *Client) CreateQuery(query *QueryCreatePayload) (*Query, error) {
 	path := "/api/queries"
 
 	payload, err := json.Marshal(query)

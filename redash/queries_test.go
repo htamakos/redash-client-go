@@ -95,7 +95,7 @@ func TestCreateQuery(t *testing.T) {
 	httpmock.RegisterResponder("POST", "https://com.acme/api/queries",
 		httpmock.NewStringResponder(200, `{ "id": 123, "name": "My query", "description": "My description", "query": "SELECT 1 + 1;", "data_source_id": 1 }`))
 
-	query, err := c.CreateQuery(QueryCreatePayload{
+	query, err := c.CreateQuery(&QueryCreatePayload{
 		Name:         "My query",
 		Description:  "My description",
 		Query:        "SELECT 1 + 1;",
