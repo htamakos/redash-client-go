@@ -2,7 +2,6 @@ package redash
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"net/url"
 	"strconv"
 	"time"
@@ -124,27 +123,44 @@ type QueryAxisLabelsOptions struct {
 	Enabled bool `json:"enabled"`
 }
 
+// QueryCreatePayload defines the schema for creating a new Redash query
+type QueryCreatePayload struct {
+	Name         string `json:"name"`
+	Query        string `json:"query"`
+	DataSourceID int    `json:"data_source_id"`
+	Description  string `json:"description,omitempty"`
+}
+
+// QueryUpdatePayload defines the schema for updating a Redash query
+type QueryUpdatePayload struct {
+	ID           int    `json:"id,omitempty"`
+	Name         string `json:"name,omitempty"`
+	Description  string `json:"description,omitempty"`
+	Query        string `json:"query,omitempty"`
+	DataSourceID int    `json:"data_source_id,omitempty"`
+	IsDraft      bool   `json:"is_draft,omitempty"`
+	Options      bool   `json:"options,omitempty"`
+	Version      bool   `json:"version,omitempty"`
+}
+
 // GetQueries returns a paginated list of queries
 func (c *Client) GetQueries() (*QueriesList, error) {
 	path := "/api/queries"
 
 	queryParams := url.Values{}
 	response, err := c.get(path, queryParams)
-
-	if err != nil {
-		return nil, err
-	}
-	body, _ := ioutil.ReadAll(response.Body)
-
-	queries := QueriesList{}
-	err = json.Unmarshal(body, &queries)
 	if err != nil {
 		return nil, err
 	}
 
 	defer response.Body.Close()
+	queries := new(QueriesList)
+	err = json.NewDecoder(response.Body).Decode(queries)
+	if err != nil {
+		return nil, err
+	}
 
-	return &queries, nil
+	return queries, nil
 }
 
 // GetQuery gets a specific query
@@ -158,17 +174,70 @@ func (c *Client) GetQuery(id int) (*Query, error) {
 	}
 
 	defer response.Body.Close()
-	body, err := ioutil.ReadAll(response.Body)
+	query := new(Query)
+	err = json.NewDecoder(response.Body).Decode(query)
 	if err != nil {
 		return nil, err
 	}
 
-	query := Query{}
+	return query, nil
+}
 
-	err = json.Unmarshal(body, &query)
+// CreateQuery creates a new Redash query
+func (c *Client) CreateQuery(query QueryCreatePayload) (*Query, error) {
+	path := "/api/queries"
+
+	payload, err := json.Marshal(query)
 	if err != nil {
 		return nil, err
 	}
 
-	return &query, nil
+	queryParams := url.Values{}
+	response, err := c.post(path, string(payload), queryParams)
+	if err != nil {
+		return nil, err
+	}
+
+	defer response.Body.Close()
+	newQuery := new(Query)
+	err = json.NewDecoder(response.Body).Decode(newQuery)
+	if err != nil {
+		return nil, err
+	}
+
+	return newQuery, nil
+}
+
+// UpdateQuery updates an existing Redash query
+func (c *Client) UpdateQuery(id int, query *QueryUpdatePayload) (*Query, error) {
+	path := "/api/queries/" + strconv.Itoa(id)
+
+	payload, err := json.Marshal(query)
+	if err != nil {
+		return nil, err
+	}
+
+	queryParams := url.Values{}
+	response, err := c.post(path, string(payload), queryParams)
+	if err != nil {
+		return nil, err
+	}
+
+	defer response.Body.Close()
+	newQuery := new(Query)
+	json.NewDecoder(response.Body).Decode(newQuery)
+	if err != nil {
+		return nil, err
+	}
+
+	return newQuery, nil
+}
+
+// ArchiveQuery archives an existing Redash query
+func (c *Client) ArchiveQuery(id int) error {
+	path := "/api/queries/" + strconv.Itoa(id)
+
+	_, err := c.delete(path, url.Values{})
+
+	return err
 }

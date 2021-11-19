@@ -84,3 +84,68 @@ func TestGetQuery(t *testing.T) {
 	assert.Equal("CHART", queryVisualisation2.Type)
 	assert.Equal("DAU", queryVisualisation2.Name)
 }
+
+func TestCreateQuery(t *testing.T) {
+	assert := assert.New(t)
+	httpmock.Activate()
+	defer httpmock.DeactivateAndReset()
+
+	c, _ := NewClient(&Config{RedashURI: "https://com.acme/", APIKey: "ApIkEyApIkEyApIkEyApIkEyApIkEy"})
+
+	httpmock.RegisterResponder("POST", "https://com.acme/api/queries",
+		httpmock.NewStringResponder(200, `{ "id": 123, "name": "My query", "description": "My description", "query": "SELECT 1 + 1;", "data_source_id": 1 }`))
+
+	query, err := c.CreateQuery(QueryCreatePayload{
+		Name:         "My query",
+		Description:  "My description",
+		Query:        "SELECT 1 + 1;",
+		DataSourceID: 1,
+	})
+	assert.Nil(err)
+
+	assert.Equal(123, query.ID)
+	assert.Equal("My query", query.Name)
+	assert.Equal("My description", query.Description)
+	assert.Equal("SELECT 1 + 1;", query.Query)
+	assert.Equal(1, query.DataSourceID)
+}
+
+func TestUpdateQuery(t *testing.T) {
+	assert := assert.New(t)
+	httpmock.Activate()
+	defer httpmock.DeactivateAndReset()
+
+	c, _ := NewClient(&Config{RedashURI: "https://com.acme/", APIKey: "ApIkEyApIkEyApIkEyApIkEyApIkEy"})
+
+	httpmock.RegisterResponder("POST", "https://com.acme/api/queries/5",
+		httpmock.NewStringResponder(200, `{ "id": 5, "name": "My query", "description": "My description", "query": "SELECT 2 + 2;", "data_source_id": 1 }`))
+
+	query, err := c.UpdateQuery(5, &QueryUpdatePayload{
+		ID:           5,
+		Name:         "My query",
+		Description:  "My description",
+		Query:        "SELECT 2 + 2;",
+		DataSourceID: 1,
+	})
+	assert.Nil(err)
+
+	assert.Equal(5, query.ID)
+	assert.Equal("My query", query.Name)
+	assert.Equal("My description", query.Description)
+	assert.Equal("SELECT 2 + 2;", query.Query)
+	assert.Equal(1, query.DataSourceID)
+}
+
+func TestArchiveQuery(t *testing.T) {
+	assert := assert.New(t)
+	httpmock.Activate()
+	defer httpmock.DeactivateAndReset()
+
+	c, _ := NewClient(&Config{RedashURI: "https://com.acme/", APIKey: "ApIkEyApIkEyApIkEyApIkEyApIkEy"})
+
+	httpmock.RegisterResponder("DELETE", "https://com.acme/api/queries/5",
+		httpmock.NewStringResponder(200, `null`))
+
+	err := c.ArchiveQuery(5)
+	assert.Nil(err)
+}
