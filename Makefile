@@ -1,4 +1,4 @@
-.PHONY: format lint tidy test clean
+.PHONY: format vet tidy test clean
 # -----------------------------------------------------------------------------
 #  CONSTANTS
 # -----------------------------------------------------------------------------
@@ -18,15 +18,14 @@ coverage_html = $(coverage_dir)/coverage.html
 # -----------------------------------------------------------------------------
 
 format:
-	GO111MODULE=on go fmt ./$(src_dir)
-	GO111MODULE=on gofmt -s -w ./$(src_dir)
+	go fmt ./$(src_dir)
+	gofmt -s -w ./$(src_dir)
 
-lint:
-	GO111MODULE=on go get -u golang.org/x/lint/golint
-	GO111MODULE=on golint ./$(src_dir)
+vet:
+	go vet ./$(src_dir)
 
 tidy:
-	GO111MODULE=on go mod tidy 
+	go mod tidy 
 
 # -----------------------------------------------------------------------------
 #  TESTING
@@ -34,8 +33,8 @@ tidy:
 
 test:
 	mkdir -p $(coverage_dir)
-	GO111MODULE=on go test ./$(src_dir) -tags test -v -covermode=count -coverprofile=$(coverage_out)
-	GO111MODULE=on go tool cover -html=$(coverage_out) -o $(coverage_html)
+	go test ./$(src_dir) -tags test -v -covermode=count -coverprofile=$(coverage_out)
+	go tool cover -html=$(coverage_out) -o $(coverage_html)
 
 # -----------------------------------------------------------------------------
 #  CLEANUP
