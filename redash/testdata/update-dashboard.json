@@ -1,0 +1,32 @@
+{
+    "tags": [],
+    "is_archived": false,
+    "updated_at": "2021-11-20T10:10:28.852Z",
+    "is_favorite": false,
+    "user": {
+      "auth_type": "password",
+      "is_disabled": false,
+      "updated_at": "2021-11-20T10:10:28.852Z",
+      "profile_image_url": "https://www.gravatar.com/avatar/example",
+      "is_invitation_pending": false,
+      "groups": [1, 2],
+      "id": 1,
+      "name": "Developer",
+      "created_at": "2021-11-20T03:46:45.750Z",
+      "disabled_at": null,
+      "is_email_verified": true,
+      "active_at": null,
+      "email": "developer@example.com"
+    },
+    "layout": [],
+    "is_draft": true,
+    "id": 5,
+    "user_id": 1,
+    "name": "New Name",
+    "created_at": "2021-11-20T10:10:28.852Z",
+    "slug": "new-dashboard",
+    "version": 1,
+    "widgets": null,
+    "dashboard_filters_enabled": false
+  }
+  

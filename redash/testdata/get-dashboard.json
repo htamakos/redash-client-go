@@ -1,0 +1,686 @@
+{
+  "id": 1,
+  "slug": "service-slos",
+  "name": "Service SLOs",
+  "user_id": 5388,
+  "user": {
+    "id": 5388,
+    "name": "Developer",
+    "email": "developer@example.com",
+    "profile_image_url": "https://example.com"
+  },
+  "layout": [],
+  "dashboard_filters_enabled": false,
+  "widgets": [
+    {
+      "id": 65057,
+      "width": 1,
+      "options": {
+        "isHidden": false,
+        "position": {
+          "autoHeight": false,
+          "sizeX": 3,
+          "sizeY": 8,
+          "minSizeX": 1,
+          "maxSizeX": 6,
+          "minSizeY": 5,
+          "maxSizeY": 1000,
+          "col": 3,
+          "row": 54
+        },
+        "parameterMappings": {
+          "service_name": {
+            "name": "service_name",
+            "type": "dashboard-level",
+            "mapTo": "service_name",
+            "value": null,
+            "title": ""
+          },
+          "day_range": {
+            "name": "day_range",
+            "type": "dashboard-level",
+            "mapTo": "day_range",
+            "value": null,
+            "title": ""
+          }
+        }
+      },
+      "dashboard_id": 1,
+      "text": "",
+      "updated_at": "2021-07-05T23:38:55.891Z",
+      "created_at": "2021-06-30T01:31:06.498Z",
+      "visualization": {
+        "id": 237170,
+        "type": "CHART",
+        "name": "Cardinality",
+        "description": "",
+        "options": {
+          "globalSeriesType": "line",
+          "sortX": true,
+          "legend": {
+            "enabled": true,
+            "placement": "auto"
+          },
+          "yAxis": [
+            {
+              "type": "linear",
+              "title": {
+                "text": "Cardinality"
+              }
+            },
+            {
+              "type": "linear",
+              "opposite": true
+            }
+          ],
+          "xAxis": {
+            "type": "-",
+            "labels": {
+              "enabled": true
+            },
+            "title": {
+              "text": "UTC"
+            }
+          },
+          "error_y": {
+            "type": "data",
+            "visible": true
+          },
+          "series": {
+            "stacking": null,
+            "error_y": {
+              "type": "data",
+              "visible": true
+            }
+          },
+          "seriesOptions": {},
+          "valuesOptions": {},
+          "columnMapping": {
+            "t": "x",
+            "cardinality": "y",
+            "resource": "series"
+          },
+          "direction": {
+            "type": "counterclockwise"
+          },
+          "sizemode": "diameter",
+          "coefficient": 1,
+          "numberFormat": "0,0[.]00000",
+          "percentFormat": "0[.]00%",
+          "textFormat": "",
+          "missingValuesAsZero": true,
+          "showDataLabels": false,
+          "dateTimeFormat": "YYYY-MM-DD HH:mm"
+        },
+        "updated_at": "2021-07-28T01:43:18.994Z",
+        "created_at": "2021-06-30T01:30:17.454Z",
+        "query": {
+          "id": 122797,
+          "latest_query_data_id": null,
+          "name": "Query Name",
+          "description": null,
+          "query": "SELECT 1 + 1;",
+          "query_hash": "9020a3d6ea15d27c9aaae2d77a2e068d",
+          "schedule": null,
+          "api_key": "APIKEYAPIKEYAPIKEY",
+          "is_archived": false,
+          "is_draft": false,
+          "updated_at": "2021-08-04T11:01:53.350Z",
+          "created_at": "2021-06-15T08:00:53.848Z",
+          "data_source_id": 18,
+          "options": {
+            "parameters": [
+              {
+                "title": "Day range",
+                "name": "day_range",
+                "type": "date-range",
+                "locals": [],
+                "value": "d_last_7_days"
+              }
+            ]
+          },
+          "version": 1,
+          "tags": ["service-X"],
+          "is_safe": true,
+          "user": {
+            "id": 5388,
+            "name": "Developer",
+            "email": "developer@example.com",
+            "profile_image_url": "https://example.com",
+            "groups": [2],
+            "updated_at": "2021-11-19T02:32:35.554Z",
+            "created_at": "2020-04-22T04:13:50.671Z",
+            "disabled_at": null,
+            "is_disabled": false,
+            "active_at": "2021-11-19T02:32:09Z",
+            "is_invitation_pending": false,
+            "is_email_verified": true,
+            "auth_type": "external"
+          },
+          "last_modified_by": {
+            "id": 5388,
+            "name": "Developer",
+            "email": "developer@example.com",
+            "profile_image_url": "https://example.com",
+            "groups": [2],
+            "updated_at": "2021-11-19T02:32:35.554Z",
+            "created_at": "2020-04-22T04:13:50.671Z",
+            "disabled_at": null,
+            "is_disabled": false,
+            "active_at": "2021-11-19T02:32:09Z",
+            "is_invitation_pending": false,
+            "is_email_verified": true,
+            "auth_type": "external"
+          }
+        }
+      }
+    },
+    {
+      "id": 64399,
+      "width": 1,
+      "options": {
+        "parameterMappings": {
+          "service_name": {
+            "name": "service_name",
+            "type": "dashboard-level",
+            "mapTo": "service_name",
+            "value": null,
+            "title": ""
+          },
+          "day_range": {
+            "name": "day_range",
+            "type": "dashboard-level",
+            "mapTo": "day_range",
+            "value": null,
+            "title": ""
+          }
+        },
+        "isHidden": false,
+        "position": {
+          "autoHeight": false,
+          "sizeX": 3,
+          "sizeY": 8,
+          "minSizeX": 1,
+          "maxSizeX": 6,
+          "minSizeY": 5,
+          "maxSizeY": 1000,
+          "col": 3,
+          "row": 20
+        }
+      },
+      "dashboard_id": 1,
+      "text": "",
+      "updated_at": "2021-07-05T23:38:55.904Z",
+      "created_at": "2021-06-15T05:06:06.761Z",
+      "visualization": {
+        "id": 234610,
+        "type": "CHART",
+        "name": "Datapoints",
+        "description": "",
+        "options": {
+          "globalSeriesType": "line",
+          "sortX": true,
+          "legend": {
+            "enabled": true,
+            "placement": "auto"
+          },
+          "yAxis": [
+            {
+              "type": "linear",
+              "title": {
+                "text": "Datapoints"
+              }
+            },
+            {
+              "type": "linear",
+              "opposite": true
+            }
+          ],
+          "xAxis": {
+            "type": "-",
+            "labels": {
+              "enabled": true
+            },
+            "title": {
+              "text": "UTC"
+            }
+          },
+          "error_y": {
+            "type": "data",
+            "visible": true
+          },
+          "series": {
+            "stacking": null,
+            "error_y": {
+              "type": "data",
+              "visible": true
+            }
+          },
+          "seriesOptions": {},
+          "valuesOptions": {},
+          "columnMapping": {
+            "t": "x",
+            "datapoints": "y",
+            "resource": "series"
+          },
+          "direction": {
+            "type": "counterclockwise"
+          },
+          "sizemode": "diameter",
+          "coefficient": 1,
+          "numberFormat": "0,0[.]00000",
+          "percentFormat": "0[.]00%",
+          "textFormat": "",
+          "missingValuesAsZero": true,
+          "showDataLabels": false,
+          "dateTimeFormat": "YYYY-MM-DD HH:mm"
+        },
+        "updated_at": "2021-07-28T01:37:11.138Z",
+        "created_at": "2021-06-15T04:58:45.373Z",
+        "query": {
+          "id": 111243,
+          "latest_query_data_id": null,
+          "name": "Query Name",
+          "description": null,
+          "query": "SELECT 1 + 1;",
+          "query_hash": "46480d15b1442949d54ee5981a65ef1d",
+          "schedule": null,
+          "api_key": "APIKEYAPIKEYAPIKEY",
+          "is_archived": false,
+          "is_draft": false,
+          "updated_at": "2021-08-04T11:01:49.776Z",
+          "created_at": "2021-02-10T23:35:43.180Z",
+          "data_source_id": 18,
+          "options": {
+            "parameters": [
+              {
+                "title": "day_range",
+                "name": "day_range",
+                "type": "date-range",
+                "locals": [],
+                "value": "d_last_7_days"
+              }
+            ]
+          },
+          "version": 1,
+          "tags": ["service-X"],
+          "is_safe": true,
+          "user": {
+            "id": 5388,
+            "name": "Developer",
+            "email": "developer@example.com",
+            "profile_image_url": "https://example.com",
+            "groups": [2],
+            "updated_at": "2021-11-19T02:32:35.554Z",
+            "created_at": "2020-04-22T04:13:50.671Z",
+            "disabled_at": null,
+            "is_disabled": false,
+            "active_at": "2021-11-19T02:32:09Z",
+            "is_invitation_pending": false,
+            "is_email_verified": true,
+            "auth_type": "external"
+          },
+          "last_modified_by": {
+            "id": 5388,
+            "name": "Developer",
+            "email": "developer@example.com",
+            "profile_image_url": "https://example.com",
+            "groups": [2],
+            "updated_at": "2021-11-19T02:32:35.554Z",
+            "created_at": "2020-04-22T04:13:50.671Z",
+            "disabled_at": null,
+            "is_disabled": false,
+            "active_at": "2021-11-19T02:32:09Z",
+            "is_invitation_pending": false,
+            "is_email_verified": true,
+            "auth_type": "external"
+          }
+        }
+      }
+    },
+    {
+      "id": 65058,
+      "width": 1,
+      "options": {
+        "isHidden": false,
+        "position": {
+          "autoHeight": false,
+          "sizeX": 3,
+          "sizeY": 8,
+          "minSizeX": 1,
+          "maxSizeX": 6,
+          "minSizeY": 5,
+          "maxSizeY": 1000,
+          "col": 3,
+          "row": 10
+        },
+        "parameterMappings": {
+          "service_name": {
+            "name": "service_name",
+            "type": "dashboard-level",
+            "mapTo": "service_name",
+            "value": null,
+            "title": ""
+          },
+          "day_range": {
+            "name": "day_range",
+            "type": "dashboard-level",
+            "mapTo": "day_range",
+            "value": null,
+            "title": ""
+          }
+        }
+      },
+      "dashboard_id": 1,
+      "text": "",
+      "updated_at": "2021-07-05T23:38:55.844Z",
+      "created_at": "2021-06-30T01:37:04.116Z",
+      "visualization": {
+        "id": 237172,
+        "type": "CHART",
+        "name": "Bytes",
+        "description": "",
+        "options": {
+          "globalSeriesType": "line",
+          "sortX": true,
+          "legend": {
+            "enabled": true,
+            "placement": "auto"
+          },
+          "yAxis": [
+            {
+              "type": "linear",
+              "title": {
+                "text": "GiB"
+              }
+            },
+            {
+              "type": "linear",
+              "opposite": true
+            }
+          ],
+          "xAxis": {
+            "type": "-",
+            "labels": {
+              "enabled": true
+            },
+            "title": {
+              "text": "UTC"
+            }
+          },
+          "error_y": {
+            "type": "data",
+            "visible": true
+          },
+          "series": {
+            "stacking": null,
+            "error_y": {
+              "type": "data",
+              "visible": true
+            }
+          },
+          "seriesOptions": {},
+          "valuesOptions": {},
+          "columnMapping": {
+            "t": "x",
+            "GiB": "y",
+            "resource": "series"
+          },
+          "direction": {
+            "type": "counterclockwise"
+          },
+          "sizemode": "diameter",
+          "coefficient": 1,
+          "numberFormat": "0,0[.]00000",
+          "percentFormat": "0[.]00%",
+          "textFormat": "",
+          "missingValuesAsZero": true,
+          "showDataLabels": false,
+          "dateTimeFormat": "YYYY-MM-DD HH:mm"
+        },
+        "updated_at": "2021-07-28T01:40:44.049Z",
+        "created_at": "2021-06-30T01:36:54.732Z",
+        "query": {
+          "id": 122786,
+          "latest_query_data_id": null,
+          "name": "Query Name",
+          "description": null,
+          "query": "SELECT 1 + 1;",
+          "query_hash": "35e9a871374593bbd5de2a80adf6fc58",
+          "schedule": {
+            "interval": 604800,
+            "time": "13:15",
+            "day_of_week": "Sunday",
+            "until": null
+          },
+          "api_key": "APIKEYAPIKEYAPIKEY",
+          "is_archived": false,
+          "is_draft": false,
+          "updated_at": "2021-11-15T08:50:22.274Z",
+          "created_at": "2021-06-15T06:43:24.038Z",
+          "data_source_id": 18,
+          "options": {
+            "parameters": [
+              {
+                "title": "Day range",
+                "name": "day_range",
+                "type": "date-range",
+                "locals": [],
+                "value": "d_last_7_days"
+              }
+            ]
+          },
+          "version": 1,
+          "tags": ["service-X"],
+          "is_safe": true,
+          "user": {
+            "id": 5388,
+            "name": "Developer",
+            "email": "developer@example.com",
+            "profile_image_url": "https://example.com",
+            "groups": [2],
+            "updated_at": "2021-11-19T02:32:35.554Z",
+            "created_at": "2020-04-22T04:13:50.671Z",
+            "disabled_at": null,
+            "is_disabled": false,
+            "active_at": "2021-11-19T02:32:09Z",
+            "is_invitation_pending": false,
+            "is_email_verified": true,
+            "auth_type": "external"
+          },
+          "last_modified_by": {
+            "id": 5388,
+            "name": "Developer",
+            "email": "developer@example.com",
+            "profile_image_url": "https://example.com",
+            "groups": [2],
+            "updated_at": "2021-11-19T02:32:35.554Z",
+            "created_at": "2020-04-22T04:13:50.671Z",
+            "disabled_at": null,
+            "is_disabled": false,
+            "active_at": "2021-11-19T02:32:09Z",
+            "is_invitation_pending": false,
+            "is_email_verified": true,
+            "auth_type": "external"
+          }
+        }
+      }
+    },
+    {
+      "id": 64828,
+      "width": 1,
+      "options": {
+        "isHidden": false,
+        "position": {
+          "autoHeight": false,
+          "sizeX": 3,
+          "sizeY": 9,
+          "minSizeX": 2,
+          "maxSizeX": 6,
+          "minSizeY": 1,
+          "maxSizeY": 1000,
+          "col": 0,
+          "row": 52
+        },
+        "parameterMappings": {
+          "day_range": {
+            "name": "day_range",
+            "type": "dashboard-level",
+            "mapTo": "day_range",
+            "value": null,
+            "title": ""
+          }
+        }
+      },
+      "dashboard_id": 1,
+      "text": "",
+      "updated_at": "2021-07-05T23:38:55.866Z",
+      "created_at": "2021-06-23T05:19:37.177Z",
+      "visualization": {
+        "id": 236091,
+        "type": "TABLE",
+        "name": "Table",
+        "description": "",
+        "options": {
+          "itemsPerPage": 25,
+          "columns": [
+            {
+              "booleanValues": ["false", "true"],
+              "imageUrlTemplate": "{{ @ }}",
+              "imageTitleTemplate": "{{ @ }}",
+              "imageWidth": "",
+              "imageHeight": "",
+              "linkUrlTemplate": "{{ @ }}",
+              "linkTextTemplate": "{{ @ }}",
+              "linkTitleTemplate": "{{ @ }}",
+              "linkOpenInNewTab": true,
+              "name": "metric_name",
+              "type": "string",
+              "displayAs": "string",
+              "visible": true,
+              "order": 0,
+              "title": "metric_name",
+              "allowSearch": true,
+              "alignContent": "left",
+              "allowHTML": true,
+              "highlightLinks": false
+            },
+            {
+              "numberFormat": "0,0",
+              "booleanValues": ["false", "true"],
+              "imageUrlTemplate": "{{ @ }}",
+              "imageTitleTemplate": "{{ @ }}",
+              "imageWidth": "",
+              "imageHeight": "",
+              "linkUrlTemplate": "{{ @ }}",
+              "linkTextTemplate": "{{ @ }}",
+              "linkTitleTemplate": "{{ @ }}",
+              "linkOpenInNewTab": true,
+              "name": "cardinality",
+              "type": "integer",
+              "displayAs": "number",
+              "visible": true,
+              "order": 1,
+              "title": "cardinality",
+              "allowSearch": false,
+              "alignContent": "right",
+              "allowHTML": true,
+              "highlightLinks": false
+            },
+            {
+              "booleanValues": ["false", "true"],
+              "imageUrlTemplate": "{{ @ }}",
+              "imageTitleTemplate": "{{ @ }}",
+              "imageWidth": "",
+              "imageHeight": "",
+              "linkUrlTemplate": "{{ @ }}",
+              "linkTextTemplate": "{{ @ }}",
+              "linkTitleTemplate": "{{ @ }}",
+              "linkOpenInNewTab": true,
+              "name": "service_name",
+              "type": "string",
+              "displayAs": "string",
+              "visible": true,
+              "order": 2,
+              "title": "service_name",
+              "allowSearch": true,
+              "alignContent": "left",
+              "allowHTML": true,
+              "highlightLinks": false
+            }
+          ]
+        },
+        "updated_at": "2021-07-05T23:37:15.810Z",
+        "created_at": "2021-06-23T05:10:54.128Z",
+        "query": {
+          "id": 123479,
+          "latest_query_data_id": null,
+          "name": "Query Name",
+          "description": null,
+          "query": "SELECT 1 + 1;",
+          "query_hash": "1d0b40c1b0150183ace1dd78319806df",
+          "schedule": null,
+          "api_key": "APIKEYAPIKEYAPIKEY",
+          "is_archived": false,
+          "is_draft": false,
+          "updated_at": "2021-07-05T23:38:28.276Z",
+          "created_at": "2021-06-23T05:10:54.128Z",
+          "data_source_id": 18,
+          "options": {
+            "parameters": [
+              {
+                "title": "day_range",
+                "name": "day_range",
+                "type": "date-range",
+                "global": false,
+                "locals": [],
+                "value": "d_last_7_days"
+              }
+            ]
+          },
+          "version": 1,
+          "tags": [],
+          "is_safe": true,
+          "user": {
+            "id": 5388,
+            "name": "Developer",
+            "email": "developer@example.com",
+            "profile_image_url": "https://example.com",
+            "groups": [2],
+            "updated_at": "2021-11-19T02:32:35.554Z",
+            "created_at": "2020-04-22T04:13:50.671Z",
+            "disabled_at": null,
+            "is_disabled": false,
+            "active_at": "2021-11-19T02:32:09Z",
+            "is_invitation_pending": false,
+            "is_email_verified": true,
+            "auth_type": "external"
+          },
+          "last_modified_by": {
+            "id": 5388,
+            "name": "Developer",
+            "email": "developer@example.com",
+            "profile_image_url": "https://example.com",
+            "groups": [2],
+            "updated_at": "2021-11-19T02:32:35.554Z",
+            "created_at": "2020-04-22T04:13:50.671Z",
+            "disabled_at": null,
+            "is_disabled": false,
+            "active_at": "2021-11-19T02:32:09Z",
+            "is_invitation_pending": false,
+            "is_email_verified": true,
+            "auth_type": "external"
+          }
+        }
+      }
+    }
+  ],
+  "is_archived": false,
+  "is_draft": false,
+  "tags": ["reliability"],
+  "updated_at": "2021-06-29T03:18:21.834Z",
+  "created_at": "2021-06-15T03:56:20.539Z",
+  "version": 14,
+  "is_favorite": true,
+  "can_edit": true
+}
