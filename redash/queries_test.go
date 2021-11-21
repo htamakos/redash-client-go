@@ -121,7 +121,6 @@ func TestUpdateQuery(t *testing.T) {
 		httpmock.NewStringResponder(200, `{ "id": 5, "name": "My query", "description": "My description", "query": "SELECT 2 + 2;", "data_source_id": 1 }`))
 
 	query, err := c.UpdateQuery(5, &QueryUpdatePayload{
-		ID:           5,
 		Name:         "My query",
 		Description:  "My description",
 		Query:        "SELECT 2 + 2;",

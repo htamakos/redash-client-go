@@ -133,7 +133,6 @@ type QueryCreatePayload struct {
 
 // QueryUpdatePayload defines the schema for updating a Redash query
 type QueryUpdatePayload struct {
-	ID           int    `json:"id,omitempty"`
 	Name         string `json:"name,omitempty"`
 	Description  string `json:"description,omitempty"`
 	Query        string `json:"query,omitempty"`
