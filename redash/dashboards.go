@@ -8,47 +8,22 @@ import (
 )
 
 type Dashboard struct {
-	ID                      int               `json:"id"`
-	Slug                    string            `json:"slug"`
-	Name                    string            `json:"name"`
-	UserID                  int               `json:"user_id"`
-	User                    User              `json:"user"`
-	Layout                  []interface{}     `json:"layout"`
-	DashboardFiltersEnabled bool              `json:"dashboard_filters_enabled"`
-	Widgets                 []DashboardWidget `json:"widgets"`
-	IsArchived              bool              `json:"is_archived"`
-	IsDraft                 bool              `json:"is_draft"`
-	Tags                    []string          `json:"tags"`
-	UpdatedAt               time.Time         `json:"updated_at"`
-	CreatedAt               time.Time         `json:"created_at"`
-	Version                 int               `json:"version"`
-	IsFavorite              bool              `json:"is_favorite"`
-	CanEdit                 bool              `json:"can_edit"`
-}
-
-type DashboardWidget struct {
-	ID            int                    `json:"id"`
-	Width         int                    `json:"width"`
-	Options       DashboardWidgetOptions `json:"options"`
-	DashboardID   int                    `json:"dashboard_id"`
-	Text          string                 `json:"text"`
-	UpdatedAt     time.Time              `json:"updated_at"`
-	CreatedAt     time.Time              `json:"created_at"`
-	Visualization DashboardVisualization `json:"visualization"`
-}
-
-type DashboardWidgetOptions struct {
-	IsHidden          bool                                       `json:"is_hidden"`
-	Position          interface{}                                `json:"position"`
-	ParameterMappings map[string]DashboardWidgetParameterMapping `json:"parameterMappings"`
-}
-
-type DashboardWidgetParameterMapping struct {
-	Name  string `json:"name"`
-	Type  string `json:"type"`
-	MapTo string `json:"mapTo"`
-	Value string `json:"value"`
-	Title string `json:"title"`
+	ID                      int           `json:"id"`
+	Slug                    string        `json:"slug"`
+	Name                    string        `json:"name"`
+	UserID                  int           `json:"user_id"`
+	User                    User          `json:"user"`
+	Layout                  []interface{} `json:"layout"`
+	DashboardFiltersEnabled bool          `json:"dashboard_filters_enabled"`
+	Widgets                 []Widget      `json:"widgets"`
+	IsArchived              bool          `json:"is_archived"`
+	IsDraft                 bool          `json:"is_draft"`
+	Tags                    []string      `json:"tags"`
+	UpdatedAt               time.Time     `json:"updated_at"`
+	CreatedAt               time.Time     `json:"created_at"`
+	Version                 int           `json:"version"`
+	IsFavorite              bool          `json:"is_favorite"`
+	CanEdit                 bool          `json:"can_edit"`
 }
 
 type DashboardVisualization struct {
