@@ -27,12 +27,12 @@ type Dashboard struct {
 }
 
 type DashboardVisualization struct {
-	ID          int                       `json:"id"`
-	Type        string                    `json:"type"`
-	Name        string                    `json:"name"`
-	Description string                    `json:"description"`
-	Options     QueryVisualizationOptions `json:"options"`
-	Query       Query                     `json:"query"`
+	ID          int                  `json:"id"`
+	Type        string               `json:"type"`
+	Name        string               `json:"name"`
+	Description string               `json:"description"`
+	Options     VisualizationOptions `json:"options"`
+	Query       Query                `json:"query"`
 }
 
 type DashboardCreatePayload struct {
