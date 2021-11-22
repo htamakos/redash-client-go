@@ -1,3 +1,7 @@
+Version 0.6.1 (2020-11-22)
+--------------------------
+Experimental methods for CRUD operations on queries, dashboard, visualizations, and widgets.
+
 Version 0.4.2 (2021-11-17)
 --------------------------
 Add methods for getting queries
