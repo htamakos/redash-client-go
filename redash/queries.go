@@ -13,85 +13,85 @@ type QueriesList struct {
 	Page     int `json:"page"`
 	PageSize int `json:"page_size"`
 	Results  []struct {
-		ID                int           `json:"id,omitempty"`
-		IsArchived        bool          `json:"is_archived,omitempty"`
-		CreatedAt         time.Time     `json:"created_at,omitempty"`
-		RetrievedAt       time.Time     `json:"retrieved_at,omitempty"`
-		UpdatedAt         time.Time     `json:"updated_at,omitempty"`
-		Name              string        `json:"name,omitempty"`
-		Description       string        `json:"description,omitempty"`
-		Query             string        `json:"query,omitempty"`
-		QueryHash         string        `json:"query_hash,omitempty"`
-		Version           int           `json:"version,omitempty"`
-		LastModifiedByID  int           `json:"last_modified_by_id,omitempty"`
-		Tags              []string      `json:"tags,omitempty"`
-		APIKey            string        `json:"api_key,omitempty"`
-		DataSourceID      int           `json:"data_source_id,omitempty"`
-		LatestQueryDataID int           `json:"latest_query_data_id,omitempty"`
-		Schedule          QuerySchedule `json:"schedule,omitempty"`
-		User              User          `json:"user,omitempty"`
-		IsFavorite        bool          `json:"is_favorite,omitempty"`
-		IsDraft           bool          `json:"is_draft,omitempty"`
-		IsSafe            bool          `json:"is_safe,omitempty"`
-		Runtime           float32       `json:"runtime,omitempty"`
-		Options           QueryOptions  `json:"options,omitempty"`
+		ID                int           `json:"id"`
+		IsArchived        bool          `json:"is_archived"`
+		CreatedAt         time.Time     `json:"created_at"`
+		RetrievedAt       time.Time     `json:"retrieved_at"`
+		UpdatedAt         time.Time     `json:"updated_at"`
+		Name              string        `json:"name"`
+		Description       string        `json:"description"`
+		Query             string        `json:"query"`
+		QueryHash         string        `json:"query_hash"`
+		Version           int           `json:"version"`
+		LastModifiedByID  int           `json:"last_modified_by_id"`
+		Tags              []string      `json:"tags"`
+		APIKey            string        `json:"api_key"`
+		DataSourceID      int           `json:"data_source_id"`
+		LatestQueryDataID int           `json:"latest_query_data_id"`
+		Schedule          QuerySchedule `json:"schedule"`
+		User              User          `json:"user"`
+		IsFavorite        bool          `json:"is_favorite"`
+		IsDraft           bool          `json:"is_draft"`
+		IsSafe            bool          `json:"is_safe"`
+		Runtime           float32       `json:"runtime"`
+		Options           QueryOptions  `json:"options"`
 	}
 }
 
 // Query models the response from Redash's /api/queries endpoint
 type Query struct {
-	ID                int             `json:"id,omitempty"`
-	Name              string          `json:"name,omitempty"`
-	Description       string          `json:"description,omitempty"`
-	Query             string          `json:"query,omitempty"`
-	QueryHash         string          `json:"query_hash,omitempty"`
-	Version           int             `json:"version,omitempty"`
-	Schedule          QuerySchedule   `json:"schedule,omitempty"`
-	APIKey            string          `json:"api_key,omitempty"`
-	IsArchived        bool            `json:"is_archived,omitempty"`
-	IsDraft           bool            `json:"is_draft,omitempty"`
-	UpdatedAt         time.Time       `json:"updated_at,omitempty"`
-	CreatedAt         time.Time       `json:"created_at,omitempty"`
-	DataSourceID      int             `json:"data_source_id,omitempty"`
-	LatestQueryDataID int             `json:"latest_query_data_id,omitempty"`
-	Tags              []string        `json:"tags,omitempty"`
-	IsSafe            bool            `json:"is_safe,omitempty"`
-	User              User            `json:"user,omitempty"`
-	LastModifiedBy    User            `json:"last_modified_by,omitempty"`
-	IsFavorite        bool            `json:"is_favorite,omitempty"`
-	CanEdit           bool            `json:"can_edit,omitempty"`
-	Options           QueryOptions    `json:"options,omitempty"`
-	Visualizations    []Visualization `json:"visualizations,omitempty"`
+	ID                int             `json:"id"`
+	Name              string          `json:"name"`
+	Description       string          `json:"description"`
+	Query             string          `json:"query"`
+	QueryHash         string          `json:"query_hash"`
+	Version           int             `json:"version"`
+	Schedule          QuerySchedule   `json:"schedule"`
+	APIKey            string          `json:"api_key"`
+	IsArchived        bool            `json:"is_archived"`
+	IsDraft           bool            `json:"is_draft"`
+	UpdatedAt         time.Time       `json:"updated_at"`
+	CreatedAt         time.Time       `json:"created_at"`
+	DataSourceID      int             `json:"data_source_id"`
+	LatestQueryDataID int             `json:"latest_query_data_id"`
+	Tags              []string        `json:"tags"`
+	IsSafe            bool            `json:"is_safe"`
+	User              User            `json:"user"`
+	LastModifiedBy    User            `json:"last_modified_by"`
+	IsFavorite        bool            `json:"is_favorite"`
+	CanEdit           bool            `json:"can_edit"`
+	Options           QueryOptions    `json:"options"`
+	Visualizations    []Visualization `json:"visualizations"`
 }
 
 // QuerySchedule struct
 type QuerySchedule struct {
-	Interval  int         `json:"interval,omitempty"`
-	Time      string      `json:"time,omitempty"`
-	DayOfWeek string      `json:"day_of_week,omitempty"`
-	Until     interface{} `json:"until,omitempty"`
+	Interval  int         `json:"interval"`
+	Time      string      `json:"time"`
+	DayOfWeek string      `json:"day_of_week"`
+	Until     interface{} `json:"until"`
 }
 
 // QueryOptions struct
 type QueryOptions struct {
-	Parameters []QueryOptionsParameter `json:"parameters,omitempty"`
+	Parameters []QueryOptionsParameter `json:"parameters"`
 }
 
 // QueryOptionsParameter struct
 type QueryOptionsParameter struct {
-	Title       string        `json:"title,omitempty"`
-	Name        string        `json:"name,omitempty"`
-	Type        string        `json:"type,omitempty"`
-	EnumOptions string        `json:"enum_options,omitempty"`
-	Locals      []interface{} `json:"locals,omitempty"`
-	Value       string        `json:"value,omitempty"`
+	Title       string        `json:"title"`
+	Name        string        `json:"name"`
+	Type        string        `json:"type"`
+	EnumOptions string        `json:"enum_options"`
+	Locals      []interface{} `json:"locals"`
+	Value       string        `json:"value"`
 }
 
 // QueryCreatePayload defines the schema for creating a new Redash query
 type QueryCreatePayload struct {
-	Name         string `json:"name"`
-	Query        string `json:"query"`
-	DataSourceID int    `json:"data_source_id"`
+	Name         string `json:"name,omitempty"`
+	Query        string `json:"query,omitempty"`
+	DataSourceID int    `json:"data_source_id,omitempty"`
 	Description  string `json:"description,omitempty"`
 }
 

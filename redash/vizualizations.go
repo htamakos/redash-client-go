@@ -10,13 +10,13 @@ import (
 
 // Visualization struct
 type Visualization struct {
-	ID          int                  `json:"id,omitempty"`
-	Type        string               `json:"type,omitempty"`
-	Name        string               `json:"name,omitempty"`
-	Description string               `json:"description,omitempty"`
-	Options     VisualizationOptions `json:"options,omitempty"`
-	UpdatedAt   time.Time            `json:"updated_at,omitempty"`
-	CreatedAt   time.Time            `json:"created_at,omitempty"`
+	ID          int                  `json:"id"`
+	Type        string               `json:"type"`
+	Name        string               `json:"name"`
+	Description string               `json:"description"`
+	Options     VisualizationOptions `json:"options"`
+	UpdatedAt   time.Time            `json:"updated_at"`
+	CreatedAt   time.Time            `json:"created_at"`
 }
 
 // VisualizationOptions struct
@@ -25,7 +25,7 @@ type VisualizationOptions struct {
 	YAxis            []VisualizationAxisOptions `json:"yAxis,omitempty"`
 	Series           map[string]interface{}     `json:"series,omitempty"`
 	GlobalSeriesType string                     `json:"globalSeriesType,omitempty"`
-	SortX            bool                       `json:"sortX,omitempty"`
+	SortX            bool                       `json:"sortX"`
 	SeriesOptions    map[string]SeriesOptions   `json:"seriesOptions,omitempty"`
 	ColumnMapping    map[string]string          `json:"columnMapping,omitempty"`
 	Legend           VisualizationLegendOptions `json:"legend,omitempty"`
@@ -41,14 +41,14 @@ type SeriesOptions struct {
 // VisualizationLegendOptions struct
 type VisualizationLegendOptions struct {
 	Enabled   bool   `json:"enabled"`
-	Placement string `json:"placement,omitempty"`
+	Placement string `json:"placement"`
 }
 
 // VisualizationAxisOptions struct
 type VisualizationAxisOptions struct {
 	Type     string                    `json:"type"`
-	Opposite bool                      `json:"opposite,omitempty"`
-	Labels   VisualizationLabelOptions `json:"labels,omitempty"`
+	Opposite bool                      `json:"opposite"`
+	Labels   VisualizationLabelOptions `json:"labels"`
 }
 
 // VisualizationLabelOptions struct
