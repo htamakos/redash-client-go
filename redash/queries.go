@@ -84,7 +84,7 @@ type QueryOptionsParameter struct {
 	Type        string        `json:"type"`
 	EnumOptions string        `json:"enum_options"`
 	Locals      []interface{} `json:"locals"`
-	Value       string        `json:"value"`
+	Value       interface{}   `json:"value"`
 }
 
 // QueryCreatePayload defines the schema for creating a new Redash query
