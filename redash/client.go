@@ -16,6 +16,7 @@ package redash
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
@@ -83,7 +84,12 @@ func (c *Client) doRequest(method, path, body string, query url.Values) (*http.R
 	}
 
 	if response.StatusCode < 200 || response.StatusCode > 299 {
-		return nil, fmt.Errorf("HTTP Response: %d", response.StatusCode)
+		var body string
+		defer response.Body.Close()
+		if b, err := io.ReadAll(response.Body); err == nil {
+			body = string(b)
+		}
+		return nil, fmt.Errorf("%d from %s request to %s: %s", response.StatusCode, method, requestURI, body)
 	}
 
 	return response, nil
