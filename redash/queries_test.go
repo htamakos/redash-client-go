@@ -118,13 +118,14 @@ func TestUpdateQuery(t *testing.T) {
 	c, _ := NewClient(&Config{RedashURI: "https://com.acme/", APIKey: "ApIkEyApIkEyApIkEyApIkEyApIkEy"})
 
 	httpmock.RegisterResponder("POST", "https://com.acme/api/queries/5",
-		httpmock.NewStringResponder(200, `{ "id": 5, "name": "My query", "description": "My description", "query": "SELECT 2 + 2;", "data_source_id": 1 }`))
+		httpmock.NewStringResponder(200, `{ "id": 5, "name": "My query", "description": "My description", "query": "SELECT 2 + 2;", "data_source_id": 1, "tags": ["tag1", "tag2"] }`))
 
 	query, err := c.UpdateQuery(5, &QueryUpdatePayload{
 		Name:         "My query",
 		Description:  "My description",
 		Query:        "SELECT 2 + 2;",
 		DataSourceID: 1,
+		Tags:         []string{"tag1", "tag2"},
 	})
 	assert.Nil(err)
 
@@ -133,6 +134,7 @@ func TestUpdateQuery(t *testing.T) {
 	assert.Equal("My description", query.Description)
 	assert.Equal("SELECT 2 + 2;", query.Query)
 	assert.Equal(1, query.DataSourceID)
+	assert.Equal([]string{"tag1", "tag2"}, query.Tags)
 }
 
 func TestArchiveQuery(t *testing.T) {

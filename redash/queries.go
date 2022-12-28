@@ -97,13 +97,14 @@ type QueryCreatePayload struct {
 
 // QueryUpdatePayload defines the schema for updating a Redash query
 type QueryUpdatePayload struct {
-	Name         string `json:"name,omitempty"`
-	Description  string `json:"description,omitempty"`
-	Query        string `json:"query,omitempty"`
-	DataSourceID int    `json:"data_source_id,omitempty"`
-	IsDraft      bool   `json:"is_draft,omitempty"`
-	Options      bool   `json:"options,omitempty"`
-	Version      bool   `json:"version,omitempty"`
+	Name         string   `json:"name,omitempty"`
+	Description  string   `json:"description,omitempty"`
+	Query        string   `json:"query,omitempty"`
+	DataSourceID int      `json:"data_source_id,omitempty"`
+	IsDraft      bool     `json:"is_draft,omitempty"`
+	Options      bool     `json:"options,omitempty"`
+	Version      bool     `json:"version,omitempty"`
+	Tags         []string `json:"tags,omitempty"`
 }
 
 // GetQueries returns a paginated list of queries
