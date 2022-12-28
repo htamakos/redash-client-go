@@ -11,12 +11,12 @@ A Simple API client library for interacting with Redash written in Go.
 
 In your go files, simply use:
 ```go
-import "github.com/digitalpoetry/redash-client-go/redash"
+import "github.com/htamakos/redash-client-go/redash"
 ```
 
 Then next `go mod tidy` or `go test` invocation will automatically
 populate your `go.mod` with the last redash-client-go release, now
-[![Version](https://img.shields.io/github/tag/digitalpoetry/redash-client-go.svg)](https://github.com/digitalpoetry/redash-client-go/releases).
+[![Version](https://img.shields.io/github/tag/htamakos/redash-client-go.svg)](https://github.com/htamakos/redash-client-go/releases).
 (Note you can use `go mod vendor` to vendor your dependencies.)
 
 From there, you will need to setup a new client in order to access API methods:
@@ -36,14 +36,14 @@ if err != nil {
 ## Usage ##
 
 Functional examples can be found in
-* https://github.com/digitalpoetry/redash-client-go/tree/master/examples 
+* https://github.com/htamakos/redash-client-go/tree/master/examples 
 
 ## Development ##
 
 Assuming git installed:
 
 ```bash
-$ git clone https://github.com/digitalpoetry/redash-client-go
+$ git clone https://github.com/htamakos/redash-client-go
 $ cd redash-client-go
 $ make test
 ```
@@ -77,14 +77,14 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-[actions-image]: https://github.com/digitalpoetry/redash-client-go/workflows/ci/badge.svg
-[actions]: https://github.com/digitalpoetry/redash-client-go/actions
+[actions-image]: https://github.com/htamakos/redash-client-go/workflows/ci/badge.svg
+[actions]: https://github.com/htamakos/redash-client-go/actions
 
-[release-image]: https://img.shields.io/github/v/release/digitalpoetry/redash-client-go?style=flat&color=6ad7e5
-[releases]: https://github.com/digitalpoetry/redash-client-go/releases
+[release-image]: https://img.shields.io/github/v/release/htamakos/redash-client-go?style=flat&color=6ad7e5
+[releases]: https://github.com/htamakos/redash-client-go/releases
 
 [license-image]: http://img.shields.io/badge/license-Apache--2-blue.svg?style=flat
 [license]: http://www.apache.org/licenses/LICENSE-2.0
 
-[goreport-image]: https://goreportcard.com/badge/github.com/digitalpoetry/redash-client-go
-[goreport]: https://goreportcard.com/report/github.com/digitalpoetry/redash-client-go
+[goreport-image]: https://goreportcard.com/badge/github.com/htamakos/redash-client-go
+[goreport]: https://goreportcard.com/report/github.com/htamakos/redash-client-go
