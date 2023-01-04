@@ -107,6 +107,12 @@ type QueryUpdatePayload struct {
 	Tags         []string `json:"tags,omitempty"`
 }
 
+type QueryPublishPayload struct {
+	ID      int  `json:"id"`
+	IsDraft bool `json:"is_draft,omitempty"`
+	Version int  `json:"version,omitempty"`
+}
+
 // GetQueries returns a paginated list of queries
 func (c *Client) GetQueries() (*QueriesList, error) {
 	path := "/api/queries"
@@ -174,6 +180,30 @@ func (c *Client) CreateQuery(query *QueryCreatePayload) (*Query, error) {
 
 // UpdateQuery updates an existing Redash query
 func (c *Client) UpdateQuery(id int, query *QueryUpdatePayload) (*Query, error) {
+	path := "/api/queries/" + strconv.Itoa(id)
+
+	payload, err := json.Marshal(query)
+	if err != nil {
+		return nil, err
+	}
+
+	queryParams := url.Values{}
+	response, err := c.post(path, string(payload), queryParams)
+	if err != nil {
+		return nil, err
+	}
+
+	defer response.Body.Close()
+	newQuery := new(Query)
+	json.NewDecoder(response.Body).Decode(newQuery)
+	if err != nil {
+		return nil, err
+	}
+
+	return newQuery, nil
+}
+
+func (c *Client) PublishQuery(id int, query *QueryPublishPayload) (*Query, error) {
 	path := "/api/queries/" + strconv.Itoa(id)
 
 	payload, err := json.Marshal(query)
