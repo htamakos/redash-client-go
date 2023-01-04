@@ -11,6 +11,7 @@ import (
 )
 
 type Destination struct {
+	Id      int                    `json:"id,omitempty"`
 	Name    string                 `json:"name,omitempty"`
 	Options map[string]interface{} `json:"options,omitempty"`
 	Type    string                 `json:"type,omitempty"`
@@ -38,9 +39,9 @@ type DestinationTypePropertyField struct {
 	Default interface{}
 }
 
-type CreateDestinationPayload struct {
+type CreateOrUpdateDestinationPayload struct {
 	Name    string                 `json:"name,omitempty"`
-	Options map[string]interface{} `json:"options,omitempty"`
+	Options map[string]interface{} `json:"options"`
 	Type    string                 `json:"type,omitempty"`
 }
 
@@ -85,7 +86,7 @@ func (c *Client) GetDestination(id int) (*Destination, error) {
 	return &destination, nil
 }
 
-func (c *Client) SanitizeDestinationOptions(destination *Destination) (*Destination, error) {
+func (c *Client) SanitizeDestinationOptions(destination *CreateOrUpdateDestinationPayload) (*CreateOrUpdateDestinationPayload, error) {
 	destinationTypes, err := c.GetDestinationTypes()
 	if err != nil {
 		return nil, err
@@ -138,10 +139,12 @@ func (c *Client) SanitizeDestinationOptions(destination *Destination) (*Destinat
 	return destination, nil
 }
 
-func (c *Client) CreateDestination(destinationPayload *Destination) (*Destination, error) {
+func (c *Client) CreateDestination(destinationPayload *CreateOrUpdateDestinationPayload) (*Destination, error) {
 	path := "/api/destinations"
 
 	destinationPayload, err := c.SanitizeDestinationOptions(destinationPayload)
+
+	fmt.Printf("%+v\n", destinationPayload)
 	if err != nil {
 		return nil, err
 	}
@@ -171,7 +174,7 @@ func (c *Client) CreateDestination(destinationPayload *Destination) (*Destinatio
 	return &destination, nil
 }
 
-func (c *Client) UpdateDestination(id int, destinationPayload *Destination) (*Destination, error) {
+func (c *Client) UpdateDestination(id int, destinationPayload *CreateOrUpdateDestinationPayload) (*Destination, error) {
 	path := "/api/destinations/" + strconv.Itoa(id)
 
 	destinationPayload, err := c.SanitizeDestinationOptions(destinationPayload)
