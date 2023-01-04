@@ -103,7 +103,7 @@ type QueryUpdatePayload struct {
 	DataSourceID int      `json:"data_source_id,omitempty"`
 	IsDraft      bool     `json:"is_draft,omitempty"`
 	Options      bool     `json:"options,omitempty"`
-	Version      bool     `json:"version,omitempty"`
+	Version      int      `json:"version,omitempty"`
 	Tags         []string `json:"tags,omitempty"`
 }
 
