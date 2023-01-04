@@ -109,7 +109,7 @@ type QueryUpdatePayload struct {
 
 type QueryPublishPayload struct {
 	ID      int  `json:"id"`
-	IsDraft bool `json:"is_draft,omitempty"`
+	IsDraft bool `json:"is_draft"`
 	Version int  `json:"version,omitempty"`
 }
 
