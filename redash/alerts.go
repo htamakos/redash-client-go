@@ -165,7 +165,7 @@ func (c *Client) DeleteAlert(id int) error {
 	return nil
 }
 
-func (c *Client) GetAlertSubscription(id int) (*[]AlertSubscription, error) {
+func (c *Client) GetAlertSubscriptions(id int) (*[]AlertSubscription, error) {
 	path := "/api/alerts/" + strconv.Itoa(id) + "/subscriptions"
 
 	res, err := c.get(path, url.Values{})
@@ -212,4 +212,14 @@ func (c *Client) CreateAlertSubscription(createAlertSubsciptionPayload CreateAle
 	}
 
 	return &alertSubscription, nil
+}
+
+func (c *Client) DeleteAlertSubscription(alertId int, subscriptionId int) error {
+	path := "/api/alerts/" + strconv.Itoa(alertId) + "/subscriptions" + strconv.Itoa(subscriptionId)
+
+	_, err := c.delete(path, url.Values{})
+	if err != nil {
+		return err
+	}
+	return nil
 }
