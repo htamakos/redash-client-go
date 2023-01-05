@@ -66,10 +66,10 @@ type Query struct {
 
 // QuerySchedule struct
 type QuerySchedule struct {
-	Interval  int         `json:"interval"`
-	Time      string      `json:"time"`
-	DayOfWeek string      `json:"day_of_week"`
-	Until     interface{} `json:"until"`
+	Interval  int    `json:"interval"`
+	Time      string `json:"time,omitempty"`
+	DayOfWeek string `json:"day_of_week,omitempty"`
+	Until     string `json:"until,omitempty"`
 }
 
 // QueryOptions struct
@@ -97,13 +97,14 @@ type QueryCreatePayload struct {
 
 // QueryUpdatePayload defines the schema for updating a Redash query
 type QueryUpdatePayload struct {
-	Name         string   `json:"name,omitempty"`
-	Description  string   `json:"description,omitempty"`
-	Query        string   `json:"query,omitempty"`
-	DataSourceID int      `json:"data_source_id,omitempty"`
-	IsDraft      bool     `json:"is_draft"`
-	Version      int      `json:"version,omitempty"`
-	Tags         []string `json:"tags,omitempty"`
+	Name         string         `json:"name,omitempty"`
+	Description  string         `json:"description,omitempty"`
+	Query        string         `json:"query,omitempty"`
+	DataSourceID int            `json:"data_source_id,omitempty"`
+	IsDraft      bool           `json:"is_draft"`
+	Schedule     *QuerySchedule `json:"schedule"`
+	Version      int            `json:"version,omitempty"`
+	Tags         []string       `json:"tags,omitempty"`
 }
 
 type QueryPublishPayload struct {
