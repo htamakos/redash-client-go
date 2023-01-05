@@ -165,6 +165,28 @@ func (c *Client) DeleteAlert(id int) error {
 	return nil
 }
 
+func (c *Client) GetAlertSubscription(id int) (*[]AlertSubscription, error) {
+	path := "/api/alerts/" + strconv.Itoa(id) + "/subscriptions"
+
+	res, err := c.get(path, url.Values{})
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	var subscriptions []AlertSubscription
+	err = json.Unmarshal(body, &subscriptions)
+	if err != nil {
+		return nil, err
+	}
+
+	return &subscriptions, nil
+}
+
 func (c *Client) CreateAlertSubscription(createAlertSubsciptionPayload CreateAlertSubscriptionPayload) (*AlertSubscription, error) {
 	path := "/api/alerts/" + strconv.Itoa(createAlertSubsciptionPayload.AlertId) + "/subscriptions"
 
